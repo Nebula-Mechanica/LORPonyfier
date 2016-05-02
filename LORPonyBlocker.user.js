@@ -6,99 +6,88 @@
 // @version     0.2.1
 // ==/UserScript==
 
-(function(document, fn) {
-    var script = document.createElement('script');
-    script.setAttribute("type", "text/javascript");
-    script.textContent = '(' + fn + ')(window, window.document);';
-    document.head.appendChild(script); // run the script
-    document.head.removeChild(script); // clean up
-})(document, function(window, document) {
-
 (function($){
 
- var ponyfaglist=[
- 'a1batross',
- 'aidan',
- 'Akamanah',
- 'amomymous',
- 'AnimusPEXUS',
- 'Anonymous',
- 'Antimatter',
+ var bronylist=[
+// 'a1batross',
+ 'Andrew',
+// 'aidan',
+ 'Aleki',
+ 'Applejohn',
+ 'alright',
+// 'Antimatter',
  'AptGet',
- 'atrus',
- 'avertex',
- 'Bagrov',
- 'bsdfun',
- 'Chaser_Andrey',
+// 'Bagrov',
+// 'brotheroftux',
+// 'bookman900',
+// 'BruteForce',
+// 'bsdfun',
  'Cooler',
- 'com',
- 'Copycat',
  'cryptohedge',
- 'Dark_SavanT',
- 'Darth_Revan',
+// 'Chaser_Andrey',
+// 'Darth_Revan',
+ 'Dahnlka',
  'dearboy',
- 'Deneb',
- 'derlafff',
- 'devpony',
- 'Dispetcher14',
- 'DoctorSinus',
- 'drBatty',
- 'druganddrop-2',
- 'ekzotech',
- 'emulek',
- 'essir',
- 'evilmanul',
- 'Extraterrestrial',
+ 'DoktorAkcel',
+ 'DeadEye',
+// 'Deneb',
+// 'derlafff',
+// 'drBatty',
+// 'druganddrop-2',
+// 'essir',
+// 'Extraterrestrial',
+// 'evilmanul',
  'Falcon-peregrinus',
- 'Flyn',
+ 'Fluttershy',
+// 'fish_ka',
  'fornlr',
+// 'funeralismatic',
+// 'Ghostwolf',
+// 'goingUp',
+ 'GordonGR',
+ 'HashDerpy',
  'HiddenComplexity',
  'hizel',
  'Hoodoo',
  'IceAlchemist',
- 'Igorrr',
- 'Ingvarr',
+// 'Igorrr',
+ 'Indaril_Shpritz',
+// 'KillTheCat',
  'IPR',
- 'ishido',
- 'ishitori',
- 'kasthack',
- 'kiverattes',
- 'ktk',
- 'ktulhu666',
- 'Landgraf',
+// 'ishido',
+ 'LastExile',
  'Legioner',
  'Le_Raux',
- 'Lonli-Lockley',
- 'Lorchanin',
  'melkor217',
- 'mephistopheles',
- 'mopsene',
+// 'MiniRoboDancer',
+ 'MyLittlePony',
  'morse',
- 'NetForHack',
  'Newlifer',
- 'nihil',
- 'Old_Hamster',
- 'OldWiseCat',
- 'olibjerd',
- 'PaxthonFettel',
- 'pevzi',
+// 'OldWiseCat',
  'procoder99',
- 'proud_anon',
- 'quowah',
+// 'proud_anon',
+ 'Policeman',
+// 'pony',
+ 'Plcmn' ,
  'reliktt',
+ 'red_eyed_peguin',
  'rikardoac',
  'Romaboy',
- 'rtvd',
- 'StalinEXE',
- 'thelonelyisland',
- 'Thero',
- 'uin',
+ 'Sahas',
+ 'svr4',
+// 'sailter',
+// 'sci-fi',
+ 'Sunil',
+ 'sluggard',
+ 'SL_RU',
+ 'terradot',
+// 'Ttt',
+// 'user_id_68054',
  'vazgen05',
- 'veneperkele',
- 'voronin',
- 'x0r',
- 'Yaourt',
- 'yaspol'
+// 'SANSLAR',
+// 'x0r',
+ 'xfilx',
+// 'zuzzas',
  ];
  
  function readSetting(name) {
@@ -119,8 +108,8 @@
  }
 
  var settingsTab={
-  'fill_ponies': 'Заменять аватарки не-понифагов поняшами',
-  'hide_ponies': 'Скрывать аватарки понифагов'
+  'fill_ponies': 'Заменять аватарки не-брони поняшами',
+  'hide_ponies': 'Скрывать аватарки брони'
  };
  
  var poniAvs=[
@@ -201,8 +190,8 @@
   
  var checkNick=function(){
   var nick=$(this).text();
-  for (var i=0;i<ponyfaglist.length;i++){
-   if (nick==ponyfaglist[i]){
+  for (var i=0;i<bronylist.length;i++){
+   if (nick==bronylist[i]){
     if (readSetting('hide_ponies')){
      (($(this).closest('.msg-container')).find('.userpic')).hide();
     }
@@ -225,7 +214,5 @@
  };
  $('article.msg a[itemprop=\'creator\']').each(checkNick);
  localStorage.setItem('ponycache',JSON.stringify(ponycache));
+//})(unsafeWindow?unsafeWindow.jQuery:jQuery);
 })(jQuery);
-
-
-});
