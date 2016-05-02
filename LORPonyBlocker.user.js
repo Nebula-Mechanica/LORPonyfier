@@ -155,7 +155,7 @@
   } else {
    s_name=name[0];
   }
-  return 'http://www.bronyland.com/goodies/avatars/'+s_name+'/100/'+name[0]+'_avatar_'+pad3((Math.random()*name[1])|0+1)+'.png';
+  return 'https://raw.githubusercontent.com/Falcon-peregrinus/LORPonyBlocker/master/www.bronyland.com/goodies/avatars/'+s_name+'/100/'+name[0]+'_avatar_'+pad3((Math.random()*name[1])|0+1)+'.png';
  }
  
  if (/settings/.test(window.location.href)){
